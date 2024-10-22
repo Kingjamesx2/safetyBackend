@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\IncidentReportResource;
-use App\Http\Resources\IncidentReportCollection;
+use App\Http\Resources\IncidentReportsResource;
+use App\Http\Resources\IncidentReportsCollection;
 use App\Http\Requests\StoreIncidentReportsRequest;
 use App\Http\Requests\UpdateIncidentReportsRequest;
 use App\Models\IncidentReports;
