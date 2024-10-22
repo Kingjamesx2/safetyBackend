@@ -11,7 +11,7 @@ class StoreMessageRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,26 @@ class StoreMessageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'messageCategoryId'=>['required'],
+            'senderId'=>['required'],
+            'topic'=>['required'],
+            'message'=>['required'],
+            'location'=>['required'],
+            'dateSent'=>['required'],
+            'isArchive'=>['required'],
+            'isDeleted'=>['required'],
+            'isForwarded'=>['required'],
+            'type'=>['required'],
         ];
+    }
+    protected function prepareForValidation() {
+        $this->merge([
+            'message_category_id' => $this-> messageCategoryId,
+            'sender_id' => $this -> senderId,
+            'date_sent'=> $this->dateSent,
+            'is_archive'=> $this->isArchive,
+            'is_deleted'=> $this->isDeleted,
+            'is_forwarded'=> $this->isForwarded,
+        ]);
     }
 }

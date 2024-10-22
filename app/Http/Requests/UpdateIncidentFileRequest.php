@@ -6,12 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateIncidentFileRequest extends FormRequest
 {
-    /**
+   /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,25 @@ class UpdateIncidentFileRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+            $method = $this->method();
+            if($method == 'PUT') {
+                return [
+                    'path'=>['required'],
+                    'comment'=>['required'],
+                    'messageId'=>['required'],
+                    ];
+        } else {
+            return [
+                'path'=>['sometimes','required'],
+                'comment'=>['someimtes','required'],
+                'messageId'=>['sometimes','required'],
+                ];
+        }
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'message_id'=>$this->messageId,
+        ]);
     }
 }

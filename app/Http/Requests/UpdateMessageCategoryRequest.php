@@ -11,7 +11,7 @@ class UpdateMessageCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,17 @@ class UpdateMessageCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
+        $method = $this->method();
+        if($method == 'PUT') {
         return [
             //
+            'category'=>['required']
         ];
+    } else {
+        return [
+            //
+            'category'=>['sometimes','required']
+    ];
     }
+}
 }

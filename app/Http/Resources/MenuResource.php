@@ -14,6 +14,13 @@ class MenuResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id'=>$this-> id,
+            'icon'=>$this->icon,
+            'name'=>$this->name,
+            'path'=>$this->path,
+            'parentId'=>$this->parent_id,
+            'roleId'=>$this->role_id,
+        ];
     }
 }

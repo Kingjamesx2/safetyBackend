@@ -8,21 +8,31 @@ class StoreRecipientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'userId'=>['required'],
+            'messageId'=>['required'],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'user_id'=>$this->userId,
+            'message_id'=>$this->messageId,
+        ]);
     }
 }

@@ -11,7 +11,7 @@ class StoreIncidentFileRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreIncidentFileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+        'path'=>['required'],
+        'comment'=>['required'],
+        'messageId'=>['required'],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'message_id'=>$this->messageId,
+        ]);
     }
 }

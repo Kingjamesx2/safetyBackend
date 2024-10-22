@@ -11,7 +11,7 @@ class StoreUsersRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,16 @@ class StoreUsersRequest extends FormRequest
     {
         return [
             //
+            'name'=>['required'],
+            'email'=>['required'],
+            'password'=>['required'],
+            'roleId' => ['required'],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'role_id' => $this->roleId
+        ]);
     }
 }

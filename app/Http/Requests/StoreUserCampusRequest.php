@@ -11,7 +11,7 @@ class StoreUserCampusRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,19 @@ class StoreUserCampusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'userId' => ['required'],
+            'campusId' => ['required'],
+            'primaryCampus' => ['required']
+        
         ];
     }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'user_id' => $this->userId,
+            'campus_id' => $this->campusId,
+            'primary_campus' => $this-> primaryCampus
+        ]);
+    }
+
 }

@@ -8,21 +8,40 @@ class UpdateDepartmentMemberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array
      */
-    public function rules(): array
+    public function rules()
     {
-        return [
-            //
-        ];
+        $method = $this -> method();
+        if($method == 'PUT') {
+            return [
+                'departmentId' =>['required'],
+                'userId' => ['required'],
+            ];
+        }
+        else {
+            return [
+                'departmentId' =>['sometimes','required'],
+                'userId' => ['sometimes','required'],
+            ];
+        }
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'department_id'=>$this->departmentId,
+            'user_id'=>$this->userId 
+        ]);
     }
 }

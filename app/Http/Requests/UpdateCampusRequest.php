@@ -11,7 +11,7 @@ class UpdateCampusRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,17 @@ class UpdateCampusRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $method = $this->method();
+        if ($method == 'PUT') {
+            return [
+                //
+                'campus' => ['required']
+            ];
+        } else {
+            return [
+                'campus' => ['sometimes', 'required']
+            ];
+        }
     }
 }
+;

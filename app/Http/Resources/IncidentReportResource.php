@@ -14,6 +14,22 @@ class IncidentReportResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id'=>$this->id,
+            'report'=>$this->report,
+            'disposition'=>$this->disposition,
+            'caseNumber'=>$this->case_number,
+            'action'=>$this->action,
+            'location'=>$this->location,
+            'uploadedBy'=>$this->uploaded_by,
+            'frequency'=>$this->frequency,
+            'incidentReoccured'=>$this->incident_reoccured,
+            'incidentFileId'=>$this->incident_file_id,
+            'incidentStatusId'=>$this->incident_status_id,
+            'userId'=>$this->user_id,
+            'campusId'=>$this->campus_id,
+            'buildingId'=>$this->building_id,
+            'incidentTypeId'=>$this->incident_type_id
+        ];
     }
 }

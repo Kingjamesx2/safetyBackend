@@ -11,7 +11,7 @@ class UpdateUsersRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,27 @@ class UpdateUsersRequest extends FormRequest
      */
     public function rules(): array
     {
+        $method = $this->method();
+        if($method == 'PUT') {
         return [
-            //
-        ];
+            'name'=>['required'],
+            'email'=>['required'],
+            'password'=>['required'],
+            'roleId' => ['required'],      
+          ];
+    } else {
+        return [
+            'name'=>['sometimes','required'],
+            'email'=>['sometimes','required'],
+            'password'=>['sometimes','required'],
+            'roleId' => ['sometimes','required'],
+    ];
+    }
+}
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'role_id' => $this->roleId
+        ]);
     }
 }

@@ -11,7 +11,7 @@ class UpdateUserCampusRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,30 @@ class UpdateUserCampusRequest extends FormRequest
      */
     public function rules(): array
     {
+
+        $method = $this->method();
+        if($method == 'PUT') {
         return [
             //
+            'userId' => ['required'],
+            'campusId' => ['required'],
+            'primaryCampus'  => ['required']
         ];
+    } else {
+        return [
+            'userId' => ['sometimes','required'],
+            'campusId' => ['sometimes','required'], 
+            'primaryCampus' => ['sometimes','required']
+       ];
     }
+}
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'user_id' => $this->userId,
+            'campus_id' => $this->campusId,
+            'primary_campus' => $this->primaryCampus
+        ]);
+    }
+
 }

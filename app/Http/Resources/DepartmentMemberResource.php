@@ -14,6 +14,10 @@ class DepartmentMemberResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this -> id,
+            'departmentId' => $this -> department_id,
+            'userId' => $this -> user_id,
+        ];
     }
 }

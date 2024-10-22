@@ -8,21 +8,34 @@ class StoreMenuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'icon'=>['required'],
+            'name'=>['required'],
+            'path'=>['required'],
+            'parentId'=>['required'],
+            'roleId'=>['required']
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'parent_id'=>$this->parentId,
+            'role_id'=>$this->roleId,
+        ]);
     }
 }

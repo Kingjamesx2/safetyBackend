@@ -11,7 +11,7 @@ class StoreBuildingRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,16 @@ class StoreBuildingRequest extends FormRequest
     {
         return [
             //
+            'name'=>['required'],
+            'buildingLocation'=>['required'],
+            'campusId'=>['required']
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'building_location'=>$this->buildingLocation,
+            'campus_id'=>$this->campusId 
+        ]);
     }
 }

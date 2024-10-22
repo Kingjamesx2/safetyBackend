@@ -11,7 +11,7 @@ class StoreAccessRightRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class StoreAccessRightRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'description'=>['required'],
+            'roleId'=>['required'],
         ];
     }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'description'=>$this->description,
+            'role_id'=>$this->roleId 
+        ]);
+    }
+
 }

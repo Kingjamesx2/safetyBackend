@@ -14,6 +14,11 @@ class IncidentFileResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id'=>$this->id,
+            'path'=>$this->path,
+            'comment'=>$this->comment,
+            'messageId'=>$this->message_id,
+        ];
     }
 }

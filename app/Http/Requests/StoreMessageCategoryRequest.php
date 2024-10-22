@@ -11,7 +11,7 @@ class StoreMessageCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,7 @@ class StoreMessageCategoryRequest extends FormRequest
     {
         return [
             //
+            'category'=>['required']
         ];
     }
 }
