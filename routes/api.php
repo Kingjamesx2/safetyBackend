@@ -4,6 +4,24 @@ use App\Http\Controllers\PushNotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UserCampusController;
+use App\Http\Controllers\CampusController;
+use App\Http\Controllers\MessageCategoryController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\BuildingController;
+use App\Http\Controllers\IncidentReportsController;
+use App\Http\Controllers\IncidentStatusController;
+use App\Http\Controllers\IncidentFileController;
+use App\Http\Controllers\UserStatusController;
+use App\Http\Controllers\AccessRightController;
+use App\Http\Controllers\RecipientController;
+use App\Http\Controllers\IncidentTypeController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DepartmentMemberController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MenuRoleController;
+
 
 
 // Route::get('/user', function (Request $request) {

@@ -15,7 +15,7 @@ class IncidentStatusController extends Controller
      */
     public function index()
     {
-        //
+        return new IncidentStatusCollection(IncidentStatus::paginate());
     }
 
     /**
@@ -23,7 +23,6 @@ class IncidentStatusController extends Controller
      */
     public function create()
     {
-        return new IncidentStatusCollection(IncidentStatus::paginate());
     }
 
     /**

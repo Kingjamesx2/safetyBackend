@@ -16,7 +16,7 @@ class MessageResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'messageCategoryId'=>$this->message_category_id,
+            // 'messageCategoryId'=>$this->message_category_id,
             'senderId'=>$this->sender_id,
             'topic'=>$this->topic,
             'message'=>$this->message,

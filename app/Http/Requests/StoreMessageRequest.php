@@ -22,7 +22,7 @@ class StoreMessageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'messageCategoryId'=>['required'],
+            // 'messageCategoryId'=>['required'],
             'senderId'=>['required'],
             'topic'=>['required'],
             'message'=>['required'],
@@ -36,7 +36,7 @@ class StoreMessageRequest extends FormRequest
     }
     protected function prepareForValidation() {
         $this->merge([
-            'message_category_id' => $this-> messageCategoryId,
+            // 'message_category_id' => $this-> messageCategoryId,
             'sender_id' => $this -> senderId,
             'date_sent'=> $this->dateSent,
             'is_archive'=> $this->isArchive,

@@ -38,7 +38,7 @@ class UpdateMessageRequest extends FormRequest
         ];
     } else {
         return [
-            'messageCategoryId'=>['sometimes','required'],
+            // 'messageCategoryId'=>['sometimes','required'],
             'senderId'=>['sometimes','required'],
             'topic'=>['sometimes','required'],
             'message'=>['sometimes','required'],
@@ -53,7 +53,7 @@ class UpdateMessageRequest extends FormRequest
 }
     protected function prepareForValidation() {
         $this->merge([
-            'message_category_id' => $this-> messageCategoryId,
+            // 'message_category_id' => $this-> messageCategoryId,
             'sender_id' => $this -> senderId,
             'date_sent'=> $this->dateSent,
             'is_archive'=> $this->isArchive,
