@@ -3,8 +3,8 @@
 use App\Http\Controllers\PushNotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RolesController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserCampusController;
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\MessageCategoryController;
@@ -31,7 +31,7 @@ use App\Http\Controllers\MenuRoleController;
 
 Route::group(['prefix'=> '', 'namespace' => 'App\Http\Controllers'], function() {
     Route::apiResource('roles', RoleController::class);
-    Route::apiResource('users', UsersController::class);
+    Route::apiResource('users', UserController::class);
     Route::apiResource('campuses', CampusController::class);
     Route::apiResource('messageCategories', MessageCategoryController::class);
     Route::apiResource('userCampuses', UserCampusController::class);    
