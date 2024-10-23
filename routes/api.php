@@ -30,7 +30,7 @@ use App\Http\Controllers\MenuRoleController;
 
 
 Route::group(['prefix'=> '', 'namespace' => 'App\Http\Controllers'], function() {
-    Route::apiResource('roles', RolesController::class);
+    Route::apiResource('roles', RoleController::class);
     Route::apiResource('users', UsersController::class);
     Route::apiResource('campuses', CampusController::class);
     Route::apiResource('messageCategories', MessageCategoryController::class);

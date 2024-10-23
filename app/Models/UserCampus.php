@@ -29,7 +29,7 @@ class UserCampus extends Model
     // Define a relationship with the User model and a userCampus belongs to a user
     public function user()
     {
-        return $this->belongsTo(Users::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     // Define a relationship with the Campus model and a usercampus belongs to a camps

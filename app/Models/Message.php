@@ -45,6 +45,6 @@ class Message extends Model
 
     public function recipients()
     {
-        return $this->belongsToMany(Users::class, 'recipient', 'message_id', 'user_id');
+        return $this->belongsToMany(User::class, 'recipient', 'message_id', 'user_id');
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Users extends Authenticatable
+class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
@@ -52,7 +52,7 @@ class Users extends Authenticatable
     // Defined a relationship with Role that  states a user belongs a single role.
     public function role()
     {
-        return $this->belongsTo(Roles::class);
+        return $this->belongsTo(Role::class);
     }
 
        // Defined a relationship with UserCampus that a user is assign to only one campus.

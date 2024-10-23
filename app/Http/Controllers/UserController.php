@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\UsersResource;
-use App\Http\Resources\UsersCollection;
-use App\Http\Requests\StoreUsersRequest;
-use App\Http\Requests\UpdateUsersRequest;
-use App\Models\Users;
+use App\Http\Resources\UserResource;
+use App\Http\Resources\UserCollection;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Models\User;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return new UsersCollection(Users::paginate());
+        return new UserCollection(User::paginate());
 
     }
 
@@ -30,23 +30,23 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUsersRequest $request)
+    public function store(StoreUserRequest $request)
     {
-        return new UsersResource(Users::create($request->all()));
+        return new UserResource(User::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Users $users)
+    public function show(User $user)
     {
-        return new UsersResource($users);
+        return new UserResource($user);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Users $users)
+    public function edit(User $user)
     {
         //
     }
@@ -54,17 +54,17 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUsersRequest $request, Users $users)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $users->update($request->all());
+        $user->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Users $users)
+    public function destroy(User $user)
     {
-        $users->delete();
+        $user->delete();
         return response()->json(['message' => 'user deleted successfully'], 200);
     }
 }

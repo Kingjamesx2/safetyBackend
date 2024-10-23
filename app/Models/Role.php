@@ -10,7 +10,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Roles extends Model
+class Role extends Model
 {
     use HasFactory;
      /**
@@ -27,7 +27,7 @@ class Roles extends Model
     //Defined a relationship with User Model which states that a role can be associated with many users
     public function users()
     {
-        return $this->hasMany(Users::class);
+        return $this->hasMany(User::class);
     }
 
     public function accessRights()

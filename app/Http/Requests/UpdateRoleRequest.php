@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateUsersRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,24 +24,15 @@ class UpdateUsersRequest extends FormRequest
         $method = $this->method();
         if($method == 'PUT') {
         return [
-            'name'=>['required'],
-            'email'=>['required'],
-            'password'=>['required'],
-            'roleId' => ['required'],      
-          ];
+            'roles'=> ['required'],
+            'description'=>['required']
+        ];
     } else {
         return [
-            'name'=>['sometimes','required'],
-            'email'=>['sometimes','required'],
-            'password'=>['sometimes','required'],
-            'roleId' => ['sometimes','required'],
-    ];
+            //
+            'roles'=> ['sometimes','required'],
+            'description'=>['sometimes','required'] 
+           ];
     }
 }
-
-    protected function prepareForValidation() {
-        $this->merge([
-            'role_id' => $this->roleId
-        ]);
-    }
 }

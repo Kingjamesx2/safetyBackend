@@ -25,7 +25,7 @@ class UpdateMessageRequest extends FormRequest
         if($method == 'PUT') {
 
         return [
-            'messageCategoryId'=>['required'],
+            // 'messageCategoryId'=>['required'],
             'senderId'=>['required'],
             'topic'=>['required'],
             'message'=>['required'],
