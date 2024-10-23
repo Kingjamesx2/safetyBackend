@@ -30,18 +30,18 @@ class Roles extends Model
         return $this->hasMany(Users::class);
     }
 
-    // public function accessRights()
-    // {
-    //     return $this->hasMany(AccessRight::class);
-    // }
+    public function accessRights()
+    {
+        return $this->hasMany(AccessRight::class);
+    }
 
-    // public function menu()
-    // {
-    //     return $this->hasOne(Menu::class);
-    // }
+    public function menu()
+    {
+        return $this->hasOne(Menu::class);
+    }
 
-    // public function menuRoles()
-    // {
-    //     return $this->hasOne(MenuRole::class, 'role_id');
-    // }
+    public function menuRoles()
+    {
+        return $this->hasOne(MenuRole::class, 'role_id');
+    }
 }

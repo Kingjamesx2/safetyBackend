@@ -56,7 +56,14 @@ class RolesController extends Controller
      */
     public function update(UpdateRolesRequest $request, Roles $roles)
     {
-        $roles->update($request->all());
+        // $roles->update($request->all());
+        \Log::info($roles); // Log the roles object
+        $roles->update($request->validated());
+    
+        return response()->json([
+            'message' => 'Role updated successfully',
+            'data' => new RolesResource($roles)
+        ], 200);
 
     }
 
