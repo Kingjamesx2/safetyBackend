@@ -25,7 +25,7 @@ class Campus extends Model
 
     public function users()
     {
-        return $this->belongsToMany(Users::class, 'user_campus', 'campus_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_campus', 'campus_id', 'user_id');
     }
 
     public function userCampus()
