@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\IncidentReports;
+use App\Models\IncidentReport;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class IncidentReportsSeeder extends Seeder
+class IncidentReportSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        IncidentReports::create([
+        IncidentReport::create([
             'report' => 'Description of incident 1',
             'disposition' => 'Disposition of incident 1',
             'case_number' => 'Case number for incident 1',
@@ -30,7 +30,7 @@ class IncidentReportsSeeder extends Seeder
             'incident_type_id' => 'incident_type_1',
         ]);
 
-        IncidentReports::create([
+        IncidentReport::create([
             'report' => 'Description of incident 1',
             'disposition' => 'Disposition of incident 1',
             'case_number' => 'Case number for incident 1',
@@ -47,7 +47,7 @@ class IncidentReportsSeeder extends Seeder
             'incident_type_id' => 'incident_type_1',
         ]);
 
-        IncidentReports::create([
+        IncidentReport::create([
             'report' => 'Description of incident 1',
             'disposition' => 'Disposition of incident 1',
             'case_number' => 'Case number for incident 1',
@@ -64,7 +64,7 @@ class IncidentReportsSeeder extends Seeder
             'incident_type_id' => 'incident_type_1',
         ]);
 
-        IncidentReports::create([
+        IncidentReport::create([
             'report' => 'Description of incident 1',
             'disposition' => 'Disposition of incident 1',
             'case_number' => 'Case number for incident 1',

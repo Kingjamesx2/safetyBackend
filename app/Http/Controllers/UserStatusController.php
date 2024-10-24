@@ -55,7 +55,7 @@ class UserStatusController extends Controller
      */
     public function update(UpdateUserStatusRequest $request, UserStatus $userStatus)
     {
-        //
+        $userStatus->update($request->all());
     }
 
     /**

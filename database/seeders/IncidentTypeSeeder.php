@@ -16,22 +16,22 @@ class IncidentTypeSeeder extends Seeder
     {
         IncidentType::create([
             'name' => 'Type 1',
-            'icon'=>'/icon/3',
+            'icon' => '/icon/3',
             'message' => 'This is message 3 content.',
         ]);
         IncidentType::create([
             'name' => 'Type 2',
-            'icon'=>'/icon/2',
+            'icon' => '/icon/2',
             'message' => 'This is message 3 content.',
         ]);
         IncidentType::create([
             'name' => 'Type 3',
-            'icon'=>'/icon/1',
+            'icon' => '/icon/1',
             'message' => 'This is message 3 content.',
         ]);
         IncidentType::create([
             'name' => 'Type 4',
-            'icon'=>'/icon/543',
+            'icon' => '/icon/543',
             'message' => 'This is message 3 content.',
         ]);
     }

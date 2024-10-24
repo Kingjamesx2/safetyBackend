@@ -23,16 +23,20 @@ class UpdateIncidentTypeRequest extends FormRequest
      */
     public function rules()
     {
-       $method = $this -> method();
-       if($method == 'PUT') {
+        $method = $this->method();
+        if ($method == 'PUT') {
             return [
-                'name'=> ['required'],
+                'name' => ['required'],
+                'icon' => ['required'],
+                'message' => ['required'],
             ];
-       }
-       else {
+        } else {
             return [
-                'name'=> ['required'],
+                'name' => ['sometimes', 'required'],
+                'icon' => ['sometimes', 'required'],
+                'message' => ['sometimes', 'required'],
+
             ];
-       }
+        }
     }
 }

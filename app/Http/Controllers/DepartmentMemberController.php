@@ -15,7 +15,7 @@ class DepartmentMemberController extends Controller
      */
     public function index()
     {
-        //
+        return new DepartmentMemberCollection( DepartmentMember::paginate());
     }
 
     /**

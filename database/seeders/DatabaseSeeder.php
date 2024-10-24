@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             MessageSeeder::class,
             IncidentFileSeeder::class,
             IncidentStatusSeeder::class,
-            IncidentReportsSeeder::class,
+            IncidentReportSeeder::class,
             UserStatusSeeder::class,
             AccessRightSeeder::class,
             RecipientSeeder::class,

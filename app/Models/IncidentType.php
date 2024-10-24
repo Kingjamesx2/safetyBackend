@@ -10,6 +10,8 @@ class IncidentType extends Model
     use HasFactory;
     protected $fillable = [
        'name',
+       'icon',
+       'message',
     ];
     public $timestamps = false;
 

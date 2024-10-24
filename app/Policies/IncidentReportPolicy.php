@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\IncidentReports;
+use App\Models\IncidentReport;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class IncidentReportsPolicy
+class IncidentReportPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class IncidentReportsPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, IncidentReports $incidentReports): bool
+    public function view(User $user, IncidentReport $incidentReport): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class IncidentReportsPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, IncidentReports $incidentReports): bool
+    public function update(User $user, IncidentReport $incidentReport): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class IncidentReportsPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, IncidentReports $incidentReports): bool
+    public function delete(User $user, IncidentReport $incidentReport): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class IncidentReportsPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, IncidentReports $incidentReports): bool
+    public function restore(User $user, IncidentReport $incidentReport): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class IncidentReportsPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, IncidentReports $incidentReports): bool
+    public function forceDelete(User $user, IncidentReport $incidentReport): bool
     {
         //
     }

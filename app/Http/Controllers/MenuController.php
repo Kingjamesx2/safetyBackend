@@ -57,7 +57,7 @@ class MenuController extends Controller
      */
     public function update(UpdateMenuRequest $request, Menu $menu)
     {
-        //
+        $menu->update($request->all());
     }
 
     /**

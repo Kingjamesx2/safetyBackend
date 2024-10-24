@@ -10,7 +10,7 @@ use App\Http\Controllers\CampusController;
 use App\Http\Controllers\MessageCategoryController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BuildingController;
-use App\Http\Controllers\IncidentReportsController;
+use App\Http\Controllers\IncidentReportController;
 use App\Http\Controllers\IncidentStatusController;
 use App\Http\Controllers\IncidentFileController;
 use App\Http\Controllers\UserStatusController;
@@ -39,7 +39,7 @@ Route::group(['prefix'=> '', 'namespace' => 'App\Http\Controllers'], function() 
     Route::apiResource('messages', MessageController::class);
     Route::apiResource('incidentFiles', IncidentFileController::class); 
     Route::apiResource('incidentStatuses', IncidentStatusController::class);
-    Route::apiResource('incidentReports', IncidentReportsController::class);
+    Route::apiResource('incidentReports', IncidentReportController::class);
     Route::apiResource('userStatuses', UserStatusController::class);
     Route::apiResource('accessRights', AccessRightController::class);
     Route::apiResource('recipients', RecipientController::class);

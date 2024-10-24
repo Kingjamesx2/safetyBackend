@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateIncidentReportsRequest extends FormRequest
+class StoreIncidentReportRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,9 +21,6 @@ class UpdateIncidentReportsRequest extends FormRequest
      */
     public function rules(): array
     {
-        
-        $method = $this->method();
-        if($method == 'PUT') {
         return [
             'report' => ['required'],
             'disposition' => ['required'],
@@ -40,28 +37,7 @@ class UpdateIncidentReportsRequest extends FormRequest
             'buildingId' => ['required'],
             'incidentTypeId' => ['required']
         ];
-    } else {
-        return [
-            'report' => ['sometimes','required'],
-            'disposition' => ['sometimes','required'],
-            'caseNumber' => ['sometimes','required'],
-            'action' =>['sometimes','required'],
-            'location' => ['sometimes','required'],
-            'uploadedBy' => ['sometimes','required'],
-            'frequency' => ['sometimes','required'],
-            'incidentReoccured' => ['sometimes','required'],
-            'incidentFileId' =>['sometimes','required'],
-            'incidentStatusId' => ['sometimes','required'],
-            'userId' => ['sometimes','required'],
-            'campusId' =>['sometimes','required'],
-            'buildingId' => ['sometimes','required'],
-            'incidentTypeId' => ['sometimes','required']
-        ];
     }
-}
-
-
-
     protected function prepareForValidation() {
         $this->merge([
             'case_number'=>$this->caseNumber,

@@ -17,7 +17,7 @@ class Building extends Model
         return $this->belongsTo(Campus::class);
     }
 
-    public function incidentReports()
+    public function incidentReport()
     {
         return $this->hasMany(IncidentReport::class);
     }

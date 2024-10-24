@@ -20,7 +20,7 @@ class Menu extends Model
 
     public function role()
     {
-        return $this->belongsTo(Roles::class);
+        return $this->belongsTo(Role::class);
     }
 
     public function menuRoles()
