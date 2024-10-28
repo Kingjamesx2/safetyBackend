@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,7 +16,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('device_token')->nullable();
+            // $table->string('device_token')->nullable();
             $table->rememberToken();
             $table->integer('user_status_id')->nullable();
             $table->integer('menu_id')->nullable();
@@ -40,6 +39,11 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
+        });
+
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('device_token')->nullable();
         });
     }
 

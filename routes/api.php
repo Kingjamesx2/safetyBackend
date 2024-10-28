@@ -21,6 +21,9 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DepartmentMemberController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuRoleController;
+// use App\Http\Controllers\NotificationController;
+use App\Services\FCMService;
+
 
 
 
@@ -48,11 +51,19 @@ Route::group(['prefix'=> '', 'namespace' => 'App\Http\Controllers'], function() 
     Route::apiResource('departmentMembers', DepartmentMemberController::class);
     Route::apiResource('menus',MenuController::class);
     Route::apiResource('menuRoles', MenuRoleController::class);
+    // Route::apiResource('notifications', NotificationController::class);
     // Route::apiResource('save-token',SaveTokenController::class);
     // Route::apiResource('send-notification', HomeController::class);
 });
 
 
+Route::post('/send-notification', function (Request $request, FCMService $fcmService) {
+    $request->validate([
+        'deviceToken' => 'required|string',
+        'title' => 'required|string',
+        'body' => 'required|string',
+    ]);
 
+    return $fcmService->sendNotification($request->deviceToken, $request->title, $request->body);
+});
 
-Route::post('/send-notification', [PushNotificationController::class,'sendPushNotification']);
