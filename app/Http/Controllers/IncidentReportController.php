@@ -7,6 +7,7 @@ use App\Http\Resources\IncidentReportCollection;
 use App\Http\Requests\StoreIncidentReportRequest;
 use App\Http\Requests\UpdateIncidentReportRequest;
 use App\Models\IncidentReport;
+use Database\Factories\IncidentReportFactory;
 
 class IncidentReportController extends Controller
 {
@@ -66,4 +67,11 @@ class IncidentReportController extends Controller
         $incidentReport->delete();
         return response()->json(['message' => 'incidentReport deleted successfully'], 200);
     }
+
+    public function getTotalIncidentReport(IncidentReport $incidentReport)
+    {
+        $incidentReport = IncidentReport::count();
+        return response()->json(['total' => $incidentReport], 200);
+    }
+
 }

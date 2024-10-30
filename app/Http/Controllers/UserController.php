@@ -67,4 +67,11 @@ class UserController extends Controller
         $user->delete();
         return response()->json(['message' => 'user deleted successfully'], 200);
     }
+
+    public function getTotalUsers( User $user)
+    {
+        $user = User::count();
+        return response()->json(['total' => $user]);
+    }
+
 }

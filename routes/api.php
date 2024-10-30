@@ -32,15 +32,15 @@ use App\Services\FCMService;
 // })->middleware('auth:sanctum');
 
 
-Route::group(['prefix'=> '', 'namespace' => 'App\Http\Controllers'], function() {
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers'], function () {
     Route::apiResource('roles', RoleController::class);
     Route::apiResource('users', UserController::class);
     Route::apiResource('campuses', CampusController::class);
     Route::apiResource('messageCategories', MessageCategoryController::class);
-    Route::apiResource('userCampuses', UserCampusController::class);    
+    Route::apiResource('userCampuses', UserCampusController::class);
     Route::apiResource('buildings', BuildingController::class);
     Route::apiResource('messages', MessageController::class);
-    Route::apiResource('incidentFiles', IncidentFileController::class); 
+    Route::apiResource('incidentFiles', IncidentFileController::class);
     Route::apiResource('incidentStatuses', IncidentStatusController::class);
     Route::apiResource('incidentReports', IncidentReportController::class);
     Route::apiResource('userStatuses', UserStatusController::class);
@@ -49,7 +49,7 @@ Route::group(['prefix'=> '', 'namespace' => 'App\Http\Controllers'], function() 
     Route::apiResource('incidentTypes', IncidentTypeController::class);
     Route::apiResource('departments', DepartmentController::class);
     Route::apiResource('departmentMembers', DepartmentMemberController::class);
-    Route::apiResource('menus',MenuController::class);
+    Route::apiResource('menus', MenuController::class);
     Route::apiResource('menuRoles', MenuRoleController::class);
     // Route::apiResource('notifications', NotificationController::class);
     // Route::apiResource('save-token',SaveTokenController::class);
@@ -67,3 +67,7 @@ Route::post('/send-notification', function (Request $request, FCMService $fcmSer
     return $fcmService->sendNotification($request->deviceToken, $request->title, $request->body);
 });
 
+
+Route::get('/usersTotal', [UserController::class, 'getTotalUsers']);
+Route::get('/incidentReportTotal', [IncidentReportController::class,'getTotalIncidentReport']);
+Route::get('/totalMessages', [MessageController::class,  'getTotalMessage']);

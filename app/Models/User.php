@@ -24,8 +24,7 @@ class User extends Authenticatable
         'device_token', 
         'user_status_id',
         'role_id',
-        'menu_id'
-        // 'email'
+        'menu_id',
     ];
     public $timestamps = false;
 

@@ -66,4 +66,10 @@ class MessageController extends Controller
         $message->delete();
         return response()->json(['message' => 'message deleted successfully'], 200);
     }
+
+    public function getTotalMessage(Message $message)
+    {
+        $message = Message::count();
+        return response()->json(['total' => $message]);
+    }
 }
